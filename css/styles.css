@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
 
 /* ========================================================================== */
 /* ===  SECCIÓN 1: ESTILOS GLOBALES Y BÁSICOS (APLICAN A TODO EL SITIO)  === */
@@ -13,13 +13,15 @@
 body {
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden; /* Evita el scroll horizontal en caso de desbordamientos */
+  line-height: 1.6; /* Mejora la legibilidad del texto */
+  color: #333; /* Color de texto por defecto */
 }
 
 .wrapper {
   width: 100vw;
   min-height: 100vh; /* Asegura que ocupe al menos la altura de la vista */
   background-color: #fff;
-  color: #878e88;
+  color: #878e88; /* Color de texto principal para el wrapper */
   display: flex; /* Añadido para facilitar el layout full-page */
   flex-direction: column; /* Apila el header, main y footer */
 }
@@ -34,656 +36,771 @@ body {
 }
 
 /* Estilos generales para los botones principales (Cotizar, Ver más, Enviar) */
-.download-cv, .btn-design-info, .btn-submit {
-  padding: 12px 25px; /* Padding más generoso para botones */
-  background-color: #ff0000;
+.download-cv,
+.btn-design-info,
+.btn-submit {
+  padding: 15px 30px;
+  background-color: #ff0000; /* Color rojo de la marca */
+  color: #fff;
   border: none;
-  border-radius: 25px; /* Más redondeado */
-  margin-top: 10px;
+  border-radius: 30px;
   cursor: pointer;
-  -webkit-box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
-  -moz-box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
-  box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
-  transition: all 0.3s ease; /* Transición para todos los estados */
-  text-decoration: none; /* Asegura que los enlaces se vean como botones */
-  color: #fff; /* Texto blanco por defecto */
+  font-size: 1.1em;
   font-weight: bold;
-  font-size: 1em;
+  text-decoration: none; /* Asegura que los enlaces se vean como botones */
+  text-align: center;
+  transition: all 0.3s ease; /* Transición suave para hover */
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Sombra suave */
+  display: inline-block; /* Para que el padding y margen funcionen bien */
 }
 
-.download-cv:hover, .btn-design-info:hover, .btn-submit:hover {
-  background-color: #878e88; /* Color de hover para todos los botones */
-  box-shadow: 1px 3px 15px -5px rgba(102, 231, 200, 0.8); /* Sombra más pronunciada */
-  color: #fff; /* Asegura el color del texto al hacer hover */
-  transform: translateY(-2px); /* Pequeño efecto de elevación */
+.download-cv:hover,
+.btn-design-info:hover,
+.btn-submit:hover {
+  background-color: #cc0000; /* Tono más oscuro de rojo al pasar el ratón */
+  transform: translateY(-3px); /* Pequeño efecto de elevación */
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Estilos para los títulos de sección h2 */
+.section-heading h2 {
+  font-size: clamp(1.8em, 5vw, 2.8em); /* Tamaño de fuente adaptable */
+  text-align: center;
+  color: #ff0000; /* Color rojo para los títulos de sección */
+  margin-bottom: 0.5em;
+}
+
+/* Estilos para los párrafos de sección */
+.section-heading p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2em auto;
+  color: #666; /* Color de texto más suave */
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 2: ESTILOS DEL ENCABEZADO (APLICAN A TODO EL SITIO)    === */
+/* ===  SECCIÓN 2: ESTILOS DEL ENCABEZADO (HEADER)  === */
 /* ========================================================================== */
+
+header {
+  background-color: #fff;
+  padding: 1.5em 2em;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky; /* Fija la barra de navegación en la parte superior */
+  top: 0;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centra verticalmente los elementos de la navbar */
-  padding: 2em;
-  width: 100%; /* Ocupa todo el ancho */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.brand {
-  margin-top: -7px;
+.brand h2 {
+  font-size: 2.2em;
+  color: #878e88;
+  font-weight: 700;
 }
 
 .brand span {
-  color: #ff0000;
+  color: #ff0000; /* Color para "FAST&" */
 }
 
 .menu {
-  display: flex;
-  width: 50%; /* Mantienes el ancho para el menú */
-  justify-content: space-around;
-}
-
-.menu li {
   list-style: none;
+  display: flex;
+  gap: 2em; /* Espacio entre los elementos del menú */
 }
 
-.menu a {
-  color: #878e88;
+.menu li a {
   text-decoration: none;
-  padding: 10px 20px;
-  transition: all 0.3s ease; /* Transición suave para todos los estados del enlace */
+  color: #878e88;
+  font-weight: 400;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
-/* Estilos para el enlace activo en el menú (Página actual) */
-.menu a.active {
+.menu li a:hover {
+  color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+.menu li a.active {
   background-color: #ff0000;
   color: #fff;
-  border-radius: 20px;
+  font-weight: 700;
 }
 
-/* Ajuste del hover para que no choque con el active. */
-.menu a:not(.active):hover {
-  background-color: #ff0000;
-  color: #fff;
+.menu li a.active:hover {
+    background-color: #cc0000; /* Tono más oscuro de rojo para el activo en hover */
+    color: #fff;
 }
 
-/* Botones de Toggle (para menú responsive) */
+/* Botones de toggle para el menú responsive */
 .toggle-menu {
-  display: none; /* Se mostrará en responsive */
+  display: none; /* Oculto por defecto en desktop */
+  font-size: 1.8em;
+  color: #878e88;
   cursor: pointer;
 }
 
-.toggle-menu .fas {
-  font-size: 1.5em;
-  color: #878e88; /* Color de los iconos del toggle */
-}
-
-.toggle-menu .fa-close {
-  display: none; /* Se mostrará solo cuando el menú esté abierto */
-}
-
 /* ========================================================================== */
-/* ===  SECCIÓN 3: ESTILOS DE LA PÁGINA DE INICIO (index.html)         === */
+/* ===  SECCIÓN 3: ESTILOS DE LA PÁGINA DE INICIO (INDEX.HTML)  === */
 /* ========================================================================== */
 
-.main-home { /* **APLICA A: index.html** */
-  margin: 0 auto;
-  width: 80vw;
+.main-home {
   flex-grow: 1; /* Permite que el main ocupe el espacio restante */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
   gap: 2em;
-  padding: 2em 0; /* Añadido padding para asegurar espacio */
+  align-items: center;
+  padding: 3em 5%; /* Padding lateral para el contenido */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.main-home h1 { /* **APLICA A: index.html** */
-  font-size: clamp(2em, 4vw, 3.5em);
-  color: #ff0000;
-}
-
-.info-content span { /* **APLICA A: index.html** */
-  color: #ff0000;
-}
-
-.info-content__p { /* **APLICA A: index.html** */
-    line-height: 1.6;
-    margin-bottom: 1.5em;
-}
-
-.main-home img { /* **APLICA A: index.html** */
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  min-height: 300px;
-  object-fit: contain;
-}
-
-/* ========================================================================== */
-/* === SECCIÓN 4: ESTILOS PARA PÁGINAS INTERNAS (diseño.html,          === */
-/* ===             acercade.html, contacto.html)                       === */
-/* ========================================================================== */
-
-.main-content-page { /* **APLICA A: diseño.html, acercade.html, contacto.html** */
-  width: 80vw;
-  margin: 4em auto;
-  min-height: 60vh;
-  flex-grow: 1; /* Asegura que ocupe el espacio disponible y empuje el footer hacia abajo */
-}
-
-/* Encabezados generales para secciones de páginas internas */
-.section-heading { /* **APLICA A: diseño.html, acercade.html, contacto.html** */
-  text-align: center;
-  margin-bottom: 3em;
+.main-home .info-content h1 {
+  font-size: clamp(2.5em, 6vw, 4em); /* Tamaño de fuente adaptable */
   color: #878e88;
+  margin-bottom: 0.5em;
 }
 
-.section-heading h2 { /* **APLICA A: diseño.html, acercade.html, contacto.html** */
-  font-size: 2.8em;
+.main-home .info-content h1 span {
+  color: #ff0000; /* Color rojo para el span en el título */
+}
+
+.main-home .info-content p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 2em;
+  color: #666;
+}
+
+.main-home .info-content .sotial-networks {
+  margin-bottom: 1.5em;
+}
+
+.main-home .info-content .sotial-networks a {
+  color: #878e88;
+  font-size: 1.5em;
+  margin-right: 1em;
+  transition: color 0.3s ease;
+}
+
+.main-home .info-content .sotial-networks a:hover {
+  color: #ff0000;
+}
+
+.main-home img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================================================== */
+/* ===  SECCIÓN 4: ESTILOS GENERALES PARA PÁGINAS INTERNAS (ACERCADE, CONTACTO, DISEÑO)  === */
+/* ========================================================================== */
+
+.main-content-page {
+  flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+  padding: 3em 5%; /* Padding general para el contenido de las páginas internas */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 5em; /* Más padding superior para separar del header */
+}
+
+/* ========================================================================== */
+/* ===  SECCIÓN 5: ESTILOS ESPECÍFICOS DEL CATÁLOGO DE DISEÑOS (DISEÑO.HTML)  === */
+/* ========================================================================== */
+
+.designs-section {
+    padding-bottom: 5em; /* Espacio al final de la sección de diseños */
+}
+
+/* Estilos para los botones de filtro del catálogo */
+.categories-filter { /* APLICA A: diseño.html */
+    text-align: center;
+    margin-top: 2em; /* Espacio antes de los filtros */
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
+    gap: 1em; /* Espacio entre los botones */
+    padding: 0 1em; /* Padding para evitar que los botones toquen los bordes en móvil */
+}
+
+.filter-btn { /* APLICA A: diseño.html */
+    padding: 10px 25px;
+    background-color: #878e88; /* Color gris de los botones inactivos */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transición suave para efectos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none; /* Elimina el contorno al hacer focus */
+}
+
+.filter-btn:hover { /* APLICA A: diseño.html */
+    background-color: #555;
+    transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el ratón */
+}
+
+.filter-btn.active { /* APLICA A: diseño.html */
+    background-color: #ff0000; /* Color rojo para el botón activo */
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples líneas */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  gap: 2em; /* Espacio entre las tarjetas */
+  padding: 0 1em; /* Pequeño padding lateral */
+}
+
+.design-card {
+  background-color: #fef6c9; /* Fondo amarillo claro */
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Asegura que la imagen no se desborde del borde redondeado */
+  width: 300px; /* Ancho fijo para cada tarjeta */
+  transition: all 0.3s ease; /* Transición para efectos de hover y ocultar */
+  display: flex;
+  flex-direction: column; /* Apila imagen y texto */
+  align-items: center; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto */
+}
+
+.design-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.design-card img {
+  width: 100%;
+  height: 200px; /* Altura fija para las imágenes del catálogo */
+  object-fit: cover; /* Recorta la imagen para que cubra el área */
+  border-bottom: 1px solid #eee;
+}
+
+.design-card .card-info {
+  padding: 1.5em;
+  flex-grow: 1; /* Permite que la info ocupe el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja el botón al final */
+}
+
+.design-card .card-info h3 {
+  font-size: 1.4em;
   color: #ff0000;
   margin-bottom: 0.5em;
 }
 
-.section-heading p { /* **APLICA A: diseño.html, acercade.html, contacto.html** */
-  max-width: 800px;
-  margin: 1em auto 0;
-  line-height: 1.6;
-  font-size: 1.1em;
+.design-card .card-info p {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 1.5em;
+}
+
+.design-card .card-info .btn-design-info {
+  font-size: 0.9em;
+  padding: 10px 20px;
+  margin-top: auto; /* Empuja el botón hacia abajo si el contenido varía */
+}
+
+/* Estilos para ocultar tarjetas de diseño (usado por JS de filtrado) */
+.design-card.hidden { /* APLICA A: diseño.html (con JS de filtrado) */
+    /* Usamos 'display: none' para removerlo del flujo,
+       pero podrías usar 'opacity: 0; transform: scale(0.8);'
+       si quieres una transición suave de desaparición.
+       Sin embargo, para un filtrado que oculte muchos elementos,
+       'display: none' es a menudo más eficiente. */
+    display: none;
+    /* Si quieres una animación de fade/scale al ocultar, usarías esto: */
+    /* opacity: 0;
+    transform: scale(0.9); */
+}
+
+
+/* ========================================================================== */
+/* ===  SECCIÓN 6: ESTILOS DE LA PÁGINA ACERCA DE (ACERCADE.HTML)  === */
+/* ========================================================================== */
+
+.about-us-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3em;
+  margin-bottom: 4em;
+}
+
+.about-us-content .text-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-us-content .text-content h2 {
+  text-align: left;
+  font-size: clamp(1.8em, 4vw, 2.5em);
+  color: #ff0000;
+  margin-bottom: 0.5em;
+}
+
+.about-us-content .text-content p {
+  text-align: left;
+  color: #666;
+  margin-bottom: 1em;
+}
+
+.about-us-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-us-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.values-section {
+  background-color: #f8f8f8;
+  padding: 4em 0;
+  margin-bottom: 4em;
+}
+
+.values-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.values-list li {
+  background-color: #fef6c9; /* Fondo amarillo claro */
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.values-list li:hover {
+    transform: translateY(-5px);
+}
+
+.values-list li i {
+  font-size: 2.5em;
+  color: #ff0000;
+  margin-bottom: 0.5em;
+}
+
+.values-list li h3 {
+  font-size: 1.3em;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.values-list li p {
+  font-size: 0.95em;
   color: #555;
 }
 
-/* ========================================================================== */
-/* ===  SECCIÓN 5: ESTILOS DE LA PÁGINA DE DISEÑOS (diseño.html)       === */
-/* ========================================================================== */
-
-.gallery-container { /* **APLICA A: diseño.html** */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5em;
-}
-
-.design-card { /* **APLICA A: diseño.html** */
-  background-color: #fef6c9;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  width: 320px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.design-card:hover { /* **APLICA A: diseño.html** */
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.design-card img { /* **APLICA A: diseño.html** */
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-bottom: 3px solid #ff0000;
-}
-
-.card-info { /* **APLICA A: diseño.html** */
-  padding: 1.8em 1.5em;
-  text-align: center;
-}
-
-.card-info h3 { /* **APLICA A: diseño.html** */
-  font-size: 1.6em;
-  margin-bottom: 0.6em;
-  color: #ff0000;
-}
-
-.card-info p { /* **APLICA A: diseño.html** */
-  font-size: 1em;
-  color: #878e88;
-  margin-bottom: 1.5em;
-  line-height: 1.5;
-}
-
-/* ========================================================================== */
-/* === SECCIÓN 6: ESTILOS DE LA PÁGINA "ACERCA DE" (acercade.html)     === */
-/* ========================================================================== */
-
-.about-us-content { /* **APLICA A: acercade.html** */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3em;
-  margin-top: 3em;
-}
-
-.about-us-image { /* **APLICA A: acercade.html** */
-  max-width: 450px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
-
-.values-list { /* **APLICA A: acercade.html** */
-  flex: 1;
-  min-width: 300px;
-  max-width: 500px;
-  background-color: #fef6c9;
-  padding: 2.5em;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.values-list h3 { /* **APLICA A: acercade.html** */
-  font-size: 2em;
-  color: #ff0000;
-  margin-bottom: 1.2em;
-  text-align: center;
-}
-
-.values-list ul { /* **APLICA A: acercade.html** */
-  list-style: none;
-  padding: 0;
-}
-
-.values-list li { /* **APLICA A: acercade.html** */
-  font-size: 1.1em;
-  color: #878e88;
-  margin-bottom: 1em;
-  display: flex;
-  align-items: center;
-}
-
-.values-list li i { /* **APLICA A: acercade.html** */
-  color: #96c0b7;
-  margin-right: 1em;
-  font-size: 1.3em;
-}
-
-.why-choose-us-grid { /* **APLICA A: acercade.html** */
+.why-choose-us-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5em;
-  margin-top: 3em;
-  padding: 0 2em;
+  gap: 2em;
+  max-width: 1000px;
+  margin: 3em auto;
+  padding: 0 1em;
 }
 
-.feature-item { /* **APLICA A: acercade.html** */
+.feature-item {
+  background-color: #fff;
+  padding: 2.5em;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 2em;
-  background-color: #fef6c9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-item:hover { /* **APLICA A: acercade.html** */
-  transform: translateY(-5px);
+.feature-item:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.feature-item i { /* **APLICA A: acercade.html** */
+.feature-item i {
   font-size: 3em;
   color: #ff0000;
   margin-bottom: 0.8em;
 }
 
-.feature-item h3 { /* **APLICA A: acercade.html** */
-  font-size: 1.6em;
-  color: #878e88;
-  margin-bottom: 0.6em;
+.feature-item h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 0.5em;
 }
 
-.feature-item p { /* **APLICA A: acercade.html** */
+.feature-item p {
   font-size: 1em;
   color: #555;
-  line-height: 1.5;
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 7: ESTILOS DE LA PÁGINA DE CONTACTO (contacto.html)    === */
+/* ===  SECCIÓN 7: ESTILOS DE LA PÁGINA DE CONTACTO (CONTACTO.HTML)  === */
 /* ========================================================================== */
 
-.contact-section { /* **APLICA A: contacto.html** */
-  padding: 3em;
-  background-color: #fff;
-  color: #878e88;
-  flex-grow: 1; /* Permite que ocupe el espacio disponible */
+.contact-section {
+  padding-bottom: 5em;
 }
 
-.contact-heading { /* **APLICA A: contacto.html** */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2em;
+.contact-heading {
+  text-align: center;
+  margin-bottom: 3em;
 }
 
-.contact-heading h2 { /* **APLICA A: contacto.html** */
-  font-size: 2.8em;
+.contact-heading h2 {
+  font-size: clamp(1.8em, 5vw, 2.8em);
   color: #ff0000;
+  margin-bottom: 0.5em;
 }
 
-.contact-heading p { /* **APLICA A: contacto.html** */
-    max-width: 800px;
-    margin: 1em auto 0;
-    line-height: 1.6;
-    font-size: 1.1em;
-    color: #555;
-}
-
-.container-contact { /* **APLICA A: contacto.html** */
+.contact-heading p {
+  font-size: 1.1em;
+  color: #666;
+  max-width: 700px;
   margin: 0 auto;
+}
+
+.container-contact {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 2em;
+  justify-content: center;
+  gap: 3em;
+  padding: 0 1em;
 }
 
-.contact-section__img { /* **APLICA A: contacto.html** */
-  width: 100%;
+.contact-section__img {
+  flex: 1;
+  min-width: 300px;
   max-width: 500px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.contact-form { /* **APLICA A: contacto.html** */
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  padding: 2em;
-  background-color: #fef6c9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.contact-form h4 { /* **APLICA A: contacto.html** */
-    font-size: 1.8em;
-    color: #ff0000;
-    margin-bottom: 1.5em;
-    text-align: center;
-}
-
-.form-group { /* **APLICA A: contacto.html** */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.form-group textarea { /* **APLICA A: contacto.html** */
-  height: 150px;
-  padding: 1.5em;
-  background: none;
-  border: 1px solid #878e88;
-  color: #878e88;
-  border-radius: 5px;
-  margin-bottom: 1em;
-  resize: vertical;
-}
-
-.form-group .input { /* **APLICA A: contacto.html** */
-  padding: 12px 20px;
-  margin-bottom: 1.2em;
-  background: none;
-  border: 1px solid #878e88;
-  border-radius: 5px;
-  color: #878e88;
-}
-
-.form-group .input::placeholder, /* **APLICA A: contacto.html** */
-.form-group textarea::placeholder {
-  color: #a0a0a0;
-}
-
-.form-group .btn-submit { /* **APLICA A: contacto.html** */
-  width: fit-content;
-  margin: 1.5em auto 0;
-}
-
-.contact-info-details { /* **APLICA A: contacto.html** */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5em;
-  margin-top: 4em;
-  padding: 0 2em;
   text-align: center;
 }
 
-.info-item { /* **APLICA A: contacto.html** */
-  background-color: #fef6c9;
-  padding: 2.5em 1.5em;
+.contact-section__img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #fef6c9; /* Fondo amarillo claro */
+  padding: 3em;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h4 {
+  font-size: 2em;
+  color: #ff0000;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.form-group .input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease-in-out;
+  font-size: 1em;
+  color: #555;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-item:hover { /* **APLICA A: contacto.html** */
+.form-group .input:focus,
+.form-group textarea:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 120px;
+}
+
+.form-group .btn-submit {
+  width: 100%; /* El botón ocupa todo el ancho del formulario */
+  padding: 12px 25px;
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+.contact-info-details {
+  margin-top: 4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  padding: 0 1em;
+}
+
+.info-item {
+  background-color: #f8f8f8;
+  padding: 2.5em 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.info-item i { /* **APLICA A: contacto.html** */
-  font-size: 2.8em;
+.info-item i {
+  font-size: 2.5em;
   color: #ff0000;
   margin-bottom: 0.8em;
 }
 
-.info-item h3 { /* **APLICA A: contacto.html** */
-  font-size: 1.5em;
-  color: #878e88;
+.info-item h3 {
+  font-size: 1.3em;
+  color: #333;
   margin-bottom: 0.5em;
 }
 
-.info-item p { /* **APLICA A: contacto.html** */
-  font-size: 1em;
+.info-item p {
+  font-size: 0.95em;
   color: #555;
   margin-bottom: 1em;
 }
 
-.info-item a { /* **APLICA A: contacto.html** */
-  display: inline-block;
-  background-color: #878e88;
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 20px;
+.info-item a {
+  color: #ff0000;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.info-item a:hover { /* **APLICA A: contacto.html** */
-  background-color: #ff0000;
+.info-item a:hover {
+  color: #cc0000;
+  text-decoration: underline;
 }
 
+
 /* ========================================================================== */
-/* ===  SECCIÓN 8: ESTILOS DEL FOOTER (APLICAN A TODO EL SITIO)        === */
+/* ===  SECCIÓN 8: ESTILOS DEL PIE DE PÁGINA (FOOTER)  === */
 /* ========================================================================== */
 
-.footer { /* **APLICA A: Todas las páginas** */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: auto;
-  padding: 2em;
-  background-color: #ff0000;
+.footer {
+  background-color: #ff0000; /* Color rojo de la marca */
   color: #fff;
-}
-
-.footer-content { /* **APLICA A: Todas las páginas** */
+  padding: 2em 1em;
   text-align: center;
-  margin-bottom: 1em;
+  margin-top: auto; /* Empuja el footer al final de la página */
 }
 
-.footer-content h2 { /* **APLICA A: Todas las páginas** */
+.footer-content h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.footer-content h2 span {
+  color: #ffd700; /* Puedes usar un color dorado/amarillo para el span en el footer */
+}
+
+.footer-content h5 {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  opacity: 0.9;
+}
+
+.sotial-networks a {
   color: #fff;
-  font-size: 2.5em;
-  margin-bottom: 0.2em;
-}
-
-.footer-content h5 { /* **APLICA A: Todas las páginas** */
-  color: #fff;
-  font-size: 1.2em;
-  margin-top: 0;
-}
-
-.sotial-networks { /* **APLICA A: Todas las páginas (Footer)** */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5em;
-  width: 100%;
-  max-width: 300px;
-}
-
-.sotial-networks i { /* **APLICA A: Todas las páginas (Footer)** */
   font-size: 1.8em;
-  color: #fff;
-  transition: transform 0.3s ease;
+  margin: 0 0.8em;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.sotial-networks i:hover { /* **APLICA A: Todas las páginas (Footer)** */
+.sotial-networks a:hover {
+  color: #ffd700; /* Color dorado/amarillo al pasar el ratón */
   transform: translateY(-3px);
-  color: #fef6c9;
 }
+
 
 /* ========================================================================== */
-/* === SECCIÓN 9: MEDIA QUERIES (RESPONSIVE) - ESTILOS MÓVILES/TABLETS === */
+/* ===  SECCIÓN 9: MEDIA QUERIES (DISEÑO RESPONSIVE)  === */
 /* ========================================================================== */
 
 @media screen and (max-width: 800px) {
-  /* --- Encabezado Responsive --- */
-  .navbar {
-      padding: 1.5em;
+  /* --- Globales --- */
+  header {
+    padding: 1em 1.5em;
   }
+
+  /* --- Header Responsive --- */
+  .navbar {
+    flex-wrap: wrap; /* Permite que el logo y el toggle se envuelvan */
+    justify-content: space-between;
+  }
+
+  .toggle-menu {
+    display: block; /* Muestra el icono de la hamburguesa */
+  }
+
   .menu {
     flex-direction: column;
-    justify-content: center;
-    position: fixed;
+    width: 100%;
+    position: fixed; /* Ocupa toda la pantalla */
     top: 0;
     left: 0;
-    width: 100vw;
     height: 100vh;
-    background-color: #fef6c9;
-    z-index: 1000;
-    transform: translateX(-110%);
-    transition: all 0.5s ease-in-out;
+    background-color: #878e88; /* Color de fondo del menú desplegado */
+    padding-top: 5em;
+    transform: translateX(-110%); /* Oculta el menú por defecto */
+    transition: transform 0.3s ease;
+    z-index: 999; /* Asegura que esté por encima de todo menos el toggle */
+    align-items: center; /* Centra los elementos del menú */
   }
-  .show-menu {
-    transform: translateX(0%);
-  }
+
   .menu li {
-    margin: 1.5em;
+    margin-bottom: 1.5em;
   }
-  .menu a {
-      font-size: 1.2em;
+
+  .menu li a {
+    font-size: 1.3em;
+    color: #fff;
   }
-  .toggle-menu {
-    display: block;
-    z-index: 1001;
+  .menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
   }
-  .fa-bars {
-    font-size: 1.5em;
-    margin-top: -0.2em;
+  .menu li a.active {
+    background-color: #ff0000;
+    color: #fff;
   }
+
+  .menu.show-menu {
+    transform: translateX(0); /* Muestra el menú */
+  }
+
+  /* Ajuste para el icono de cerrar */
   .toggle-menu .fa-close {
-    font-size: 1.7em;
-    display: none;
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    color: #fff; /* Color blanco para el icono de cerrar en el menú gris */
   }
 
   /* --- Página de Inicio (index.html) Responsive --- */
   .main-home {
-    display: flex;
-    flex-direction: column-reverse;
-    height: auto;
-    width: 90vw;
-    padding: 2em 0;
-    margin: 2em auto;
-  }
-  .main-home img {
-    width: min(70%, 350px);
-    height: auto;
-    margin-bottom: 1.5em;
-  }
-  .info-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    flex-direction: column-reverse; /* Pone la imagen encima del texto */
+    padding: 2em 5%;
     text-align: center;
-    padding: 0 1em;
-  }
-  .info-content .sotial-networks,
-  .info-content__subtitle {
-    display: block;
-  }
-  .info-content .sotial-networks {
-    width: 100%;
-    max-width: 250px;
-    margin-top: 1em;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .download-cv,
-  .info-content__p {
-    display: none;
   }
 
-  /* --- Páginas Internas Generales (diseño.html, acercade.html, contacto.html) Responsive --- */
+  .main-home .info-content h1 {
+    font-size: 2.5em;
+    text-align: center;
+  }
+
+  .main-home .info-content p {
+    text-align: center;
+    font-size: 1em;
+  }
+
+  .main-home .info-content .sotial-networks {
+    justify-content: center; /* Centra los iconos */
+  }
+
+  .main-home img {
+    margin-bottom: 2em; /* Espacio entre imagen y texto */
+  }
+
+  /* --- Páginas Internas Generales --- */
   .main-content-page {
-    width: 90vw;
-    margin: 2em auto;
-    padding: 0 1em;
-  }
-  .section-heading h2 {
-    font-size: 2.2em;
-  }
-  .section-heading p {
-    font-size: 0.95em;
-    padding: 0 1em;
+    padding-top: 3em; /* Ajusta el padding superior */
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   /* --- Página de Diseños (diseño.html) Responsive --- */
-  .design-card {
-    width: 90%;
-    max-width: 350px;
+  .categories-filter { /* APLICA A: diseño.html */
+    gap: 0.8em; /* Reduce el espacio entre botones */
+    margin-bottom: 2em;
   }
-  .design-card img {
-    height: 180px;
-  }
-  .card-info h3 {
-    font-size: 1.4em;
-  }
-  .btn-design-info {
-    padding: 10px 20px;
+  .filter-btn { /* APLICA A: diseño.html */
+    padding: 8px 18px;
     font-size: 0.9em;
   }
+  .gallery-container {
+    padding: 0; /* Elimina padding lateral extra */
+  }
+  .design-card {
+    width: 90%; /* Hace que las tarjetas sean casi de ancho completo en móvil */
+    max-width: 350px; /* Limita el tamaño máximo */
+    margin: 1em auto; /* Centra las tarjetas */
+  }
 
-  /* --- Página "Acerca de" (acercade.html) Responsive --- */
+
+  /* --- Página Acerca de (acercade.html) Responsive --- */
   .about-us-content {
     flex-direction: column;
-    align-items: center;
+    gap: 2em;
   }
-  .about-us-image {
-    max-width: 90%;
+
+  .about-us-content .text-content h2,
+  .about-us-content .text-content p {
+    text-align: center;
   }
+
   .values-list {
-    width: 90%;
-    max-width: none;
-    padding: 1.5em;
+    grid-template-columns: 1fr;
+    padding: 0 1em;
   }
-  .values-list h3 {
-    font-size: 1.8em;
-  }
+
   .values-list li {
     font-size: 1em;
   }
+
   .why-choose-us-grid {
     grid-template-columns: 1fr;
     padding: 0 1em;
@@ -725,44 +842,35 @@ body {
     padding: 2em 1em;
   }
   .info-item i {
-    font-size: 2.5em;
+    font-size: 2em;
+  }
+  .info-item h3 {
+    font-size: 1.2em;
+  }
+  .info-item p {
+    font-size: 0.9em;
   }
 
   /* --- Footer Responsive --- */
   .footer {
-    height: auto;
-    padding: 1.5em;
+    padding: 1.5em 1em;
   }
   .footer-content h2 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
   .footer-content h5 {
-    font-size: 1em;
+    font-size: 0.9em;
   }
-  .sotial-networks {
-      gap: 1em;
-  }
-  .sotial-networks i {
-      font-size: 1.5em;
+  .sotial-networks a {
+    font-size: 1.5em;
+    margin: 0 0.5em;
   }
 }
 
 @media screen and (max-width: 480px) {
-  /* Ajustes más finos para pantallas muy pequeñas */
-  .section-heading h2 {
-    font-size: 2em;
-  }
-  .section-heading p {
-    font-size: 0.9em;
-    padding: 0 1em;
-  }
-  .feature-item {
-    padding: 1.5em;
-  }
-  .contact-heading h2 {
-    font-size: 1.8em;
-  }
-  .contact-heading p {
-    font-size: 0.85em;
-  }
+    /* Ajustes adicionales para móviles muy pequeños */
+    .filter-btn { /* APLICA A: diseño.html */
+      padding: 7px 15px;
+      font-size: 0.8em;
+    }
 }
