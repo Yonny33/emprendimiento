@@ -28,11 +28,11 @@ body {
 
 /* Estilos para el divisor (línea) */
 .section-heading .divider {
-    width: 60px; /* Ancho de la línea divisoria */
-    height: 4px; /* Altura de la línea divisoria */
-    background-color: #ff0000; /* Color de la línea */
-    margin: 0.5em auto 1.5em; /* Centra la línea y da márgenes */
-    border-radius: 2px;
+  width: 60px; /* Ancho de la línea divisoria */
+  height: 4px; /* Altura de la línea divisoria */
+  background-color: #ff0000; /* Color de la línea */
+  margin: 0.5em auto 1.5em; /* Centra la línea y da márgenes */
+  border-radius: 2px;
 }
 
 /* Estilos generales para los botones principales (Cotizar, Ver más, Enviar) */
@@ -138,8 +138,8 @@ header {
 }
 
 .menu li a.active:hover {
-    background-color: #cc0000; /* Tono más oscuro de rojo para el activo en hover */
-    color: #fff;
+  background-color: #cc0000; /* Tono más oscuro de rojo para el activo en hover */
+  color: #fff;
 }
 
 /* Botones de toggle para el menú responsive */
@@ -222,44 +222,50 @@ header {
 /* ========================================================================== */
 
 .designs-section {
-    padding-bottom: 5em; /* Espacio al final de la sección de diseños */
+  padding-bottom: 5em; /* Espacio al final de la sección de diseños */
 }
 
 /* Estilos para los botones de filtro del catálogo */
-.categories-filter { /* APLICA A: diseño.html */
-    text-align: center;
-    margin-top: 2em; /* Espacio antes de los filtros */
-    margin-bottom: 3em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
-    gap: 1em; /* Espacio entre los botones */
-    padding: 0 1em; /* Padding para evitar que los botones toquen los bordes en móvil */
+.categories-filter {
+  /* APLICA A: diseño.html */
+  text-align: center;
+  margin-top: 2em; /* Espacio antes de los filtros */
+  margin-bottom: 3em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
+  gap: 1em; /* Espacio entre los botones */
+  padding: 0 1em; /* Padding para evitar que los botones toquen los bordes en móvil */
 }
 
-.filter-btn { /* APLICA A: diseño.html */
-    padding: 10px 25px;
-    background-color: #878e88; /* Color gris de los botones inactivos */
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: all 0.3s ease; /* Transición suave para efectos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    outline: none; /* Elimina el contorno al hacer focus */
+.filter-btn {
+  /* APLICA A: diseño.html */
+  padding: 10px 25px;
+  background-color: #878e88; /* Color gris de los botones inactivos */
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Transición suave para efectos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none; /* Elimina el contorno al hacer focus */
 }
 
-.filter-btn:hover { /* APLICA A: diseño.html */
-    background-color: #555;
-    transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el ratón */
+.filter-btn:hover {
+  /* APLICA A: diseño.html */
+  background-color: #555;
+  transform: translateY(
+    -2px
+  ); /* Pequeño efecto de elevación al pasar el ratón */
 }
 
-.filter-btn.active { /* APLICA A: diseño.html */
-    background-color: #ff0000; /* Color rojo para el botón activo */
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
+.filter-btn.active {
+  /* APLICA A: diseño.html */
+  background-color: #ff0000; /* Color rojo para el botón activo */
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px); /* Pequeño efecto de elevación */
 }
 
 .gallery-container {
@@ -322,18 +328,18 @@ header {
 }
 
 /* Estilos para ocultar tarjetas de diseño (usado por JS de filtrado) */
-.design-card.hidden { /* APLICA A: diseño.html (con JS de filtrado) */
-    /* Usamos 'display: none' para removerlo del flujo,
+.design-card.hidden {
+  /* APLICA A: diseño.html (con JS de filtrado) */
+  /* Usamos 'display: none' para removerlo del flujo,
        pero podrías usar 'opacity: 0; transform: scale(0.8);'
        si quieres una transición suave de desaparición.
        Sin embargo, para un filtrado que oculte muchos elementos,
        'display: none' es a menudo más eficiente. */
-    display: none;
-    /* Si quieres una animación de fade/scale al ocultar, usarías esto: */
-    /* opacity: 0;
+  display: none;
+  /* Si quieres una animación de fade/scale al ocultar, usarías esto: */
+  /* opacity: 0;
     transform: scale(0.9); */
 }
-
 
 /* ========================================================================== */
 /* ===  SECCIÓN 6: ESTILOS DE LA PÁGINA ACERCA DE (ACERCADE.HTML)  === */
@@ -404,7 +410,7 @@ header {
 }
 
 .values-list li:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .values-list li i {
@@ -624,7 +630,6 @@ header {
   text-decoration: underline;
 }
 
-
 /* ========================================================================== */
 /* ===  SECCIÓN 8: ESTILOS DEL PIE DE PÁGINA (FOOTER)  === */
 /* ========================================================================== */
@@ -663,7 +668,6 @@ header {
   color: #ffd700; /* Color dorado/amarillo al pasar el ratón */
   transform: translateY(-3px);
 }
-
 
 /* ========================================================================== */
 /* ===  SECCIÓN 9: MEDIA QUERIES (DISEÑO RESPONSIVE)  === */
@@ -763,11 +767,13 @@ header {
   }
 
   /* --- Página de Diseños (diseño.html) Responsive --- */
-  .categories-filter { /* APLICA A: diseño.html */
+  .categories-filter {
+    /* APLICA A: diseño.html */
     gap: 0.8em; /* Reduce el espacio entre botones */
     margin-bottom: 2em;
   }
-  .filter-btn { /* APLICA A: diseño.html */
+  .filter-btn {
+    /* APLICA A: diseño.html */
     padding: 8px 18px;
     font-size: 0.9em;
   }
@@ -779,7 +785,6 @@ header {
     max-width: 350px; /* Limita el tamaño máximo */
     margin: 1em auto; /* Centra las tarjetas */
   }
-
 
   /* --- Página Acerca de (acercade.html) Responsive --- */
   .about-us-content {
@@ -823,16 +828,16 @@ header {
     padding: 1.5em;
   }
   .contact-form h4 {
-      font-size: 1.5em;
+    font-size: 1.5em;
   }
   .form-group .input,
   .form-group textarea {
-      padding: 10px 15px;
-      font-size: 0.9em;
+    padding: 10px 15px;
+    font-size: 0.9em;
   }
   .form-group .btn-submit {
-      padding: 10px 20px;
-      font-size: 0.9em;
+    padding: 10px 20px;
+    font-size: 0.9em;
   }
   .contact-info-details {
     grid-template-columns: 1fr;
@@ -868,9 +873,10 @@ header {
 }
 
 @media screen and (max-width: 480px) {
-    /* Ajustes adicionales para móviles muy pequeños */
-    .filter-btn { /* APLICA A: diseño.html */
-      padding: 7px 15px;
-      font-size: 0.8em;
-    }
+  /* Ajustes adicionales para móviles muy pequeños */
+  .filter-btn {
+    /* APLICA A: diseño.html */
+    padding: 7px 15px;
+    font-size: 0.8em;
+  }
 }
