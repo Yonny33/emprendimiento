@@ -31,63 +31,30 @@ body {
   width: 60px; /* Ancho de la línea divisoria */
   height: 4px; /* Altura de la línea divisoria */
   background-color: #ff0000; /* Color de la línea */
-  margin: 0.5em auto 1.5em; /* Centra la línea y da márgenes */
+  margin: 0.5em auto 1.5em; /* Centra la línea y da espaciado */
   border-radius: 2px;
 }
 
-/* Estilos generales para los botones principales (Cotizar, Ver más, Enviar) */
-.download-cv,
-.btn-design-info,
-.btn-submit {
-  padding: 15px 30px;
-  background-color: #ff0000; /* Color rojo de la marca */
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1.1em;
+/* Clases de utilidad */
+.highlight {
+  color: #ff0000; /* Color de realce, similar al rojo en el logo */
+}
+
+/* Estilo para palabras clave en párrafos */
+.keyword {
   font-weight: bold;
-  text-decoration: none; /* Asegura que los enlaces se vean como botones */
-  text-align: center;
-  transition: all 0.3s ease; /* Transición suave para hover */
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Sombra suave */
-  display: inline-block; /* Para que el padding y margen funcionen bien */
-}
-
-.download-cv:hover,
-.btn-design-info:hover,
-.btn-submit:hover {
-  background-color: #cc0000; /* Tono más oscuro de rojo al pasar el ratón */
-  transform: translateY(-3px); /* Pequeño efecto de elevación */
-  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
-}
-
-/* Estilos para los títulos de sección h2 */
-.section-heading h2 {
-  font-size: clamp(1.8em, 5vw, 2.8em); /* Tamaño de fuente adaptable */
-  text-align: center;
-  color: #ff0000; /* Color rojo para los títulos de sección */
-  margin-bottom: 0.5em;
-}
-
-/* Estilos para los párrafos de sección */
-.section-heading p {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 2em auto;
-  color: #666; /* Color de texto más suave */
+  color: #555; /* Color gris similar al de las letras del logo */
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 2: ESTILOS DEL ENCABEZADO (HEADER)  === */
+/* === SECCIÓN 2: ENCABEZADO Y NAVEGACIÓN (HEADER, NAVBAR, MENÚ) === */
 /* ========================================================================== */
 
 header {
   background-color: #fff;
-  padding: 1.5em 2em;
-  border-bottom: 1px solid #eee;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky; /* Fija la barra de navegación en la parte superior */
+  padding: 1em 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Hace que la barra de navegación se pegue en la parte superior */
   top: 0;
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
@@ -98,359 +65,238 @@ header {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2em;
 }
 
 .brand h2 {
-  font-size: 2.2em;
-  color: #878e88;
+  font-size: 1.8em;
+  color: #222;
   font-weight: 700;
 }
 
-.brand span {
-  color: #ff0000; /* Color para "FAST&" */
+.brand h2 span {
+  color: #ff0000; /* Color rojo para la parte FAST& */
 }
 
 .menu {
   list-style: none;
   display: flex;
-  gap: 2em; /* Espacio entre los elementos del menú */
+  gap: 2em;
 }
 
 .menu li a {
   text-decoration: none;
-  color: #878e88;
-  font-weight: 400;
+  color: #555;
+  font-weight: 600;
   font-size: 1.1em;
-  padding: 0.5em 1em;
-  transition: all 0.3s ease;
-  border-radius: 5px;
+  padding: 0.5em 0;
+  transition: color 0.3s ease-in-out;
 }
 
 .menu li a:hover {
   color: #ff0000;
-  background-color: rgba(255, 0, 0, 0.05);
 }
 
-.menu li a.active {
-  background-color: #ff0000;
-  color: #fff;
-  font-weight: 700;
-}
-
-.menu li a.active:hover {
-  background-color: #cc0000; /* Tono más oscuro de rojo para el activo en hover */
-  color: #fff;
-}
-
-/* Botones de toggle para el menú responsive */
-.toggle-menu {
+.toggle_menu {
   display: none; /* Oculto por defecto en desktop */
   font-size: 1.8em;
-  color: #878e88;
-  cursor: pointer;
+}
+
+.toggle_menu a {
+  color: #555;
+  text-decoration: none;
+}
+
+#toggle_close {
+  display: none; /* Oculto por defecto */
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 3: ESTILOS DE LA PÁGINA DE INICIO (INDEX.HTML)  === */
+/* === SECCIÓN 3: PÁGINA DE INICIO (INDEX.HTML) === */
 /* ========================================================================== */
 
-.main-home {
-  flex-grow: 1; /* Permite que el main ocupe el espacio restante */
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas */
-  gap: 2em;
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  padding: 3em 5%; /* Padding lateral para el contenido */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  padding: 4em 2em;
+  gap: 3em; /* Espacio entre los elementos flexibles */
   max-width: 1200px;
   margin: 0 auto;
+  flex-grow: 1; /* Permite que el main-content ocupe el espacio disponible */
 }
 
-.main-home .info-content h1 {
-  font-size: clamp(2.5em, 6vw, 4em); /* Tamaño de fuente adaptable */
-  color: #878e88;
+.info-content {
+  flex: 1;
+  min-width: 300px; /* Ancho mínimo para el contenido de texto */
+  max-width: 600px;
+  text-align: left;
+}
+
+.info-content__subtitle {
+  font-size: 1em;
+  color: #ff0000;
+  font-weight: 600;
+  display: block;
   margin-bottom: 0.5em;
+  text-transform: uppercase;
 }
 
-.main-home .info-content h1 span {
-  color: #ff0000; /* Color rojo para el span en el título */
+.info-content h1 {
+  font-size: 2.8em;
+  color: #222;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
 }
 
-.main-home .info-content p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  margin-bottom: 2em;
-  color: #666;
-}
-
-.main-home .info-content .sotial-networks {
-  margin-bottom: 1.5em;
-}
-
-.main-home .info-content .sotial-networks a {
-  color: #878e88;
-  font-size: 1.5em;
-  margin-right: 1em;
-  transition: color 0.3s ease;
-}
-
-.main-home .info-content .sotial-networks a:hover {
+.info-content h1 span {
   color: #ff0000;
 }
 
-.main-home img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* Eliminado: .info-content .social-media { ... } */
+
+.info-content__p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 1.5em;
 }
 
-/* ========================================================================== */
-/* ===  SECCIÓN 4: ESTILOS GENERALES PARA PÁGINAS INTERNAS (ACERCADE, CONTACTO, DISEÑO)  === */
-/* ========================================================================== */
-
-.main-content-page {
-  flex-grow: 1; /* Permite que el main ocupe el espacio restante */
-  padding: 3em 5%; /* Padding general para el contenido de las páginas internas */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 5em; /* Más padding superior para separar del header */
-}
-
-/* ========================================================================== */
-/* ===  SECCIÓN 5: ESTILOS ESPECÍFICOS DEL CATÁLOGO DE DISEÑOS (DISEÑO.HTML)  === */
-/* ========================================================================== */
-
-.designs-section {
-  padding-bottom: 5em; /* Espacio al final de la sección de diseños */
-}
-
-/* Estilos para los botones de filtro del catálogo */
-.categories-filter {
-  /* APLICA A: diseño.html */
-  text-align: center;
-  margin-top: 2em; /* Espacio antes de los filtros */
-  margin-bottom: 3em;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
-  gap: 1em; /* Espacio entre los botones */
-  padding: 0 1em; /* Padding para evitar que los botones toquen los bordes en móvil */
-}
-
-.filter-btn {
-  /* APLICA A: diseño.html */
-  padding: 10px 25px;
-  background-color: #878e88; /* Color gris de los botones inactivos */
+.info-content .download-cv {
+  background-color: #ff0000;
   color: #fff;
   border: none;
-  border-radius: 25px;
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
   font-weight: bold;
-  transition: all 0.3s ease; /* Transición suave para efectos */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  outline: none; /* Elimina el contorno al hacer focus */
 }
 
-.filter-btn:hover {
-  /* APLICA A: diseño.html */
-  background-color: #555;
-  transform: translateY(
-    -2px
-  ); /* Pequeño efecto de elevación al pasar el ratón */
+.info-content .download-cv:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
 }
 
-.filter-btn.active {
-  /* APLICA A: diseño.html */
-  background-color: #ff0000; /* Color rojo para el botón activo */
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-  transform: translateY(-2px); /* Pequeño efecto de elevación */
-}
-
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples líneas */
-  justify-content: center; /* Centra las tarjetas en el contenedor */
-  gap: 2em; /* Espacio entre las tarjetas */
-  padding: 0 1em; /* Pequeño padding lateral */
-}
-
-.design-card {
-  background-color: #fef6c9; /* Fondo amarillo claro */
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Asegura que la imagen no se desborde del borde redondeado */
-  width: 300px; /* Ancho fijo para cada tarjeta */
-  transition: all 0.3s ease; /* Transición para efectos de hover y ocultar */
-  display: flex;
-  flex-direction: column; /* Apila imagen y texto */
-  align-items: center; /* Centra el contenido horizontalmente */
-  text-align: center; /* Centra el texto */
-}
-
-.design-card:hover {
-  transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.design-card img {
+.main-content img {
+  max-width: 450px;
   width: 100%;
-  height: 200px; /* Altura fija para las imágenes del catálogo */
-  object-fit: cover; /* Recorta la imagen para que cubra el área */
-  border-bottom: 1px solid #eee;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.design-card .card-info {
-  padding: 1.5em;
-  flex-grow: 1; /* Permite que la info ocupe el espacio restante */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Empuja el botón al final */
+/* ========================================================================== */
+/* === SECCIÓN 4: PÁGINA ACERCA DE NOSOTROS (ACERCADE.HTML) === */
+/* ========================================================================== */
+
+.about-us-section,
+.values-section,
+.why-choose-us-section {
+  padding: 4em 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.design-card .card-info h3 {
-  font-size: 1.4em;
+.about-us-section h1,
+.values-section h2,
+.why-choose-us-section h2,
+.section-heading h2 { /* Aplica a los headings dentro de section-heading */
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 0.5em; /* Ajustado para estar más cerca del divider */
+}
+
+.about-us-section h1 span,
+.values-section h2 span,
+.why-choose-us-section h2 span {
   color: #ff0000;
-  margin-bottom: 0.5em;
 }
 
-.design-card .card-info p {
-  font-size: 0.95em;
-  color: #555;
-  margin-bottom: 1.5em;
+.section-heading p {
+  font-size: 1.1em;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 2em; /* Centra el párrafo y da espaciado inferior */
 }
-
-.design-card .card-info .btn-design-info {
-  font-size: 0.9em;
-  padding: 10px 20px;
-  margin-top: auto; /* Empuja el botón hacia abajo si el contenido varía */
-}
-
-/* Estilos para ocultar tarjetas de diseño (usado por JS de filtrado) */
-.design-card.hidden {
-  /* APLICA A: diseño.html (con JS de filtrado) */
-  /* Usamos 'display: none' para removerlo del flujo,
-       pero podrías usar 'opacity: 0; transform: scale(0.8);'
-       si quieres una transición suave de desaparición.
-       Sin embargo, para un filtrado que oculte muchos elementos,
-       'display: none' es a menudo más eficiente. */
-  display: none;
-  /* Si quieres una animación de fade/scale al ocultar, usarías esto: */
-  /* opacity: 0;
-    transform: scale(0.9); */
-}
-
-/* ========================================================================== */
-/* ===  SECCIÓN 6: ESTILOS DE LA PÁGINA ACERCA DE (ACERCADE.HTML)  === */
-/* ========================================================================== */
 
 .about-us-content {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start; /* Alinea los ítems arriba */
   gap: 3em;
-  margin-bottom: 4em;
-}
-
-.about-us-content .text-content {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-us-content .text-content h2 {
-  text-align: left;
-  font-size: clamp(1.8em, 4vw, 2.5em);
-  color: #ff0000;
-  margin-bottom: 0.5em;
-}
-
-.about-us-content .text-content p {
-  text-align: left;
-  color: #666;
-  margin-bottom: 1em;
+  margin-top: 2em;
 }
 
 .about-us-image {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.about-us-image img {
-  max-width: 100%;
+  max-width: 500px;
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.values-section {
-  background-color: #f8f8f8;
-  padding: 4em 0;
-  margin-bottom: 4em;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .values-list {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.values-list h3 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.values-list ul {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2em;
-  max-width: 1000px;
-  margin: 2em auto;
-  padding: 0 1em;
+  padding: 0;
 }
 
 .values-list li {
-  background-color: #fef6c9; /* Fondo amarillo claro */
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.values-list li:hover {
-  transform: translateY(-5px);
+  background-color: #f9f9f9;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
 }
 
 .values-list li i {
-  font-size: 2.5em;
   color: #ff0000;
-  margin-bottom: 0.5em;
+  font-size: 1.2em;
 }
 
-.values-list li h3 {
-  font-size: 1.3em;
-  color: #333;
-  margin-bottom: 0.5em;
-}
-
-.values-list li p {
-  font-size: 0.95em;
-  color: #555;
-}
 
 .why-choose-us-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2em;
-  max-width: 1000px;
-  margin: 3em auto;
-  padding: 0 1em;
+  margin-top: 2em;
 }
 
 .feature-item {
   background-color: #fff;
-  padding: 2.5em;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .feature-item:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .feature-item i {
@@ -460,48 +306,234 @@ header {
 }
 
 .feature-item h3 {
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: #333;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 
 .feature-item p {
   font-size: 1em;
-  color: #555;
+  color: #666;
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 7: ESTILOS DE LA PÁGINA DE CONTACTO (CONTACTO.HTML)  === */
+/* === SECCIÓN 5: PÁGINA DE DISEÑO (DISEÑO.HTML) === */
 /* ========================================================================== */
 
-.contact-section {
-  padding-bottom: 5em;
-}
-
-.contact-heading {
+.designs-section {
+  padding: 4em 2em;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  margin-bottom: 3em;
 }
 
-.contact-heading h2 {
-  font-size: clamp(1.8em, 5vw, 2.8em);
+.designs-section h2 { /* Modificado para coexistir con .section-heading h2 */
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 0.5em; /* Ajustado */
+}
+
+.designs-section h2 span {
   color: #ff0000;
+}
+
+.categories-filter {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8em;
+}
+
+.filter-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 0.8em 1.5em;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+  background-color: #ff0000;
+  color: #fff;
+  border-color: #ff0000;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2em;
+}
+
+.design-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease, height 0.3s ease;
+}
+
+.design-card.hidden {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  visibility: hidden; /* Asegura que no sea interactuable */
+  transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.design-card img {
+  width: 100%;
+  height: 200px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  border-bottom: 1px solid #eee;
+}
+
+.card-info {
+  padding: 1.5em;
+}
+
+.card-info h3 {
+  font-size: 1.3em;
+  color: #333;
   margin-bottom: 0.5em;
 }
 
-.contact-heading p {
-  font-size: 1.1em;
+.card-info p {
+  font-size: 0.95em;
   color: #666;
-  max-width: 700px;
+  margin-bottom: 1em;
+}
+
+.btn-design-info {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-design-info:hover {
+  background-color: #cc0000;
+}
+
+/* ========================================================================== */
+/* === SECCIÓN 6: PÁGINA DE CONTACTO (CONTACTO.HTML) === */
+/* ========================================================================== */
+
+.contact-section {
+  padding: 4em 2em;
+  max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 1.5em;
+}
+
+.contact-section h2 span {
+  color: #ff0000;
 }
 
 .container-contact {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 3em;
-  padding: 0 1em;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  margin-top: 3em;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 2.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.contact-form h4 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.2em;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.form-group .input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.form-group .input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff0000;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical; /* Permite redimensionar verticalmente */
+  min-height: 100px;
+}
+
+.form-group .btn-submit {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  width: 100%;
+}
+
+.form-group .btn-submit:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
 }
 
 .contact-section__img {
@@ -512,98 +544,32 @@ header {
 }
 
 .contact-section__img img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form {
-  flex: 1;
-  min-width: 300px;
-  max-width: 500px;
-  background-color: #fef6c9; /* Fondo amarillo claro */
-  padding: 3em;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h4 {
-  font-size: 2em;
-  color: #ff0000;
-  margin-bottom: 1.5em;
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 1.5em;
-}
-
-.form-group label {
-  display: block;
-  font-size: 1em;
-  color: #333;
-  margin-bottom: 0.5em;
-  font-weight: 600;
-}
-
-.form-group .input,
-.form-group textarea {
   width: 100%;
-  padding: 12px 18px;
-  border: 1px solid #ccc;
+  height: auto;
   border-radius: 8px;
-  font-size: 1em;
-  color: #555;
-  background-color: #fff;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group .input:focus,
-.form-group textarea:focus {
-  border-color: #ff0000;
-  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
-  outline: none;
-}
-
-.form-group textarea {
-  resize: vertical; /* Permite redimensionar verticalmente */
-  min-height: 120px;
-}
-
-.form-group .btn-submit {
-  width: 100%; /* El botón ocupa todo el ancho del formulario */
-  padding: 12px 25px;
-  font-size: 1.1em;
-  margin-top: 1em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info-details {
-  margin-top: 4em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2em;
+  margin-top: 4em;
   padding: 0 1em;
 }
 
 .info-item {
-  background-color: #f8f8f8;
-  padding: 2.5em 1.5em;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background-color: #f9f9f9;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.info-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .info-item i {
   font-size: 2.5em;
   color: #ff0000;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
 }
 
 .info-item h3 {
@@ -613,12 +579,13 @@ header {
 }
 
 .info-item p {
-  font-size: 0.95em;
-  color: #555;
+  font-size: 1em;
+  color: #666;
   margin-bottom: 1em;
 }
 
 .info-item a {
+  display: inline-block;
   color: #ff0000;
   text-decoration: none;
   font-weight: 600;
@@ -627,178 +594,153 @@ header {
 
 .info-item a:hover {
   color: #cc0000;
-  text-decoration: underline;
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 8: ESTILOS DEL PIE DE PÁGINA (FOOTER)  === */
+/* === SECCIÓN 7: FOOTER === */
 /* ========================================================================== */
 
 .footer {
-  background-color: #ff0000; /* Color rojo de la marca */
-  color: #fff;
-  padding: 2em 1em;
+  background-color: #333; /* Gris oscuro similar al logo */
+  color: #eee; /* Texto claro */
+  padding: 2em 2em;
   text-align: center;
-  margin-top: auto; /* Empuja el footer al final de la página */
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
 .footer-content h2 {
   font-size: 2em;
+  color: #eee;
   margin-bottom: 0.5em;
 }
 
 .footer-content h2 span {
-  color: #ffd700; /* Puedes usar un color dorado/amarillo para el span en el footer */
+  color: #ff0000; /* Rojo para la parte FAST& */
 }
 
 .footer-content h5 {
   font-size: 1em;
+  color: #bbb;
   margin-bottom: 1.5em;
-  opacity: 0.9;
+  font-weight: 400;
+}
+
+.sotial-networks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1em;
 }
 
 .sotial-networks a {
-  color: #fff;
+  color: #fff; /* Iconos blancos */
   font-size: 1.8em;
-  margin: 0 0.8em;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .sotial-networks a:hover {
-  color: #ffd700; /* Color dorado/amarillo al pasar el ratón */
+  color: #ff0000; /* Rojo al pasar el mouse */
   transform: translateY(-3px);
 }
 
 /* ========================================================================== */
-/* ===  SECCIÓN 9: MEDIA QUERIES (DISEÑO RESPONSIVE)  === */
+/* === SECCIÓN 8: RESPONSIVE DESIGN (MEDIA QUERIES) === */
 /* ========================================================================== */
 
-@media screen and (max-width: 800px) {
+@media (max-width: 768px) {
   /* --- Globales --- */
-  header {
-    padding: 1em 1.5em;
-  }
-
-  /* --- Header Responsive --- */
   .navbar {
-    flex-wrap: wrap; /* Permite que el logo y el toggle se envuelvan */
-    justify-content: space-between;
+    padding: 0 1.5em;
   }
 
-  .toggle-menu {
-    display: block; /* Muestra el icono de la hamburguesa */
+  .brand h2 {
+    font-size: 1.6em;
   }
 
   .menu {
     flex-direction: column;
-    width: 100%;
-    position: fixed; /* Ocupa toda la pantalla */
+    position: fixed;
     top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: #878e88; /* Color de fondo del menú desplegado */
+    right: -250px; /* Oculto por defecto */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     padding-top: 5em;
-    transform: translateX(-110%); /* Oculta el menú por defecto */
-    transition: transform 0.3s ease;
-    z-index: 999; /* Asegura que esté por encima de todo menos el toggle */
-    align-items: center; /* Centra los elementos del menú */
-  }
-
-  .menu li {
-    margin-bottom: 1.5em;
+    transition: right 0.3s ease-in-out;
+    align-items: flex-start;
+    gap: 1em;
+    z-index: 999;
   }
 
   .menu li a {
-    font-size: 1.3em;
-    color: #fff;
-  }
-  .menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-  }
-  .menu li a.active {
-    background-color: #ff0000;
-    color: #fff;
+    padding: 0.8em 1.5em;
+    width: 100%;
+    border-bottom: 1px solid #eee;
   }
 
   .menu.show-menu {
-    transform: translateX(0); /* Muestra el menú */
+    right: 0; /* Muestra el menú */
   }
 
-  /* Ajuste para el icono de cerrar */
-  .toggle-menu .fa-close {
-    position: absolute;
-    top: 1.5em;
-    right: 1.5em;
-    color: #fff; /* Color blanco para el icono de cerrar en el menú gris */
+  .toggle_menu {
+    display: block; /* Muestra los iconos de hamburguesa/cierre */
   }
 
   /* --- Página de Inicio (index.html) Responsive --- */
-  .main-home {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-    flex-direction: column-reverse; /* Pone la imagen encima del texto */
-    padding: 2em 5%;
+  .main-content {
+    flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+    padding: 2em 1.5em;
     text-align: center;
-  }
-
-  .main-home .info-content h1 {
-    font-size: 2.5em;
-    text-align: center;
-  }
-
-  .main-home .info-content p {
-    text-align: center;
-    font-size: 1em;
-  }
-
-  .main-home .info-content .sotial-networks {
-    justify-content: center; /* Centra los iconos */
-  }
-
-  .main-home img {
-    margin-bottom: 2em; /* Espacio entre imagen y texto */
-  }
-
-  /* --- Páginas Internas Generales --- */
-  .main-content-page {
-    padding-top: 3em; /* Ajusta el padding superior */
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
-  /* --- Página de Diseños (diseño.html) Responsive --- */
-  .categories-filter {
-    /* APLICA A: diseño.html */
-    gap: 0.8em; /* Reduce el espacio entre botones */
-    margin-bottom: 2em;
-  }
-  .filter-btn {
-    /* APLICA A: diseño.html */
-    padding: 8px 18px;
-    font-size: 0.9em;
-  }
-  .gallery-container {
-    padding: 0; /* Elimina padding lateral extra */
-  }
-  .design-card {
-    width: 90%; /* Hace que las tarjetas sean casi de ancho completo en móvil */
-    max-width: 350px; /* Limita el tamaño máximo */
-    margin: 1em auto; /* Centra las tarjetas */
-  }
-
-  /* --- Página Acerca de (acercade.html) Responsive --- */
-  .about-us-content {
-    flex-direction: column;
     gap: 2em;
   }
 
-  .about-us-content .text-content h2,
-  .about-us-content .text-content p {
+  .info-content {
     text-align: center;
   }
 
+  .info-content h1 {
+    font-size: 2em;
+  }
+
+  .info-content__p {
+    font-size: 1em;
+  }
+
+  .main-content img {
+    max-width: 90%;
+  }
+
+  /* --- Página Acerca de Nosotros (acercade.html) Responsive --- */
+  .about-us-section,
+  .values-section,
+  .why-choose-us-section {
+    padding: 3em 1.5em;
+  }
+
+  .about-us-section h1,
+  .values-section h2,
+  .why-choose-us-section h2,
+  .section-heading h2 {
+    font-size: 2em;
+  }
+
+  .section-heading p {
+    font-size: 1em;
+  }
+
+  .about-us-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-us-image {
+    max-width: 90%;
+  }
+
   .values-list {
-    grid-template-columns: 1fr;
+    min-width: unset;
+    width: 100%;
     padding: 0 1em;
   }
 
@@ -843,40 +785,61 @@ header {
     grid-template-columns: 1fr;
     padding: 0 1em;
   }
-  .info-item {
-    padding: 2em 1em;
-  }
-  .info-item i {
-    font-size: 2em;
-  }
-  .info-item h3 {
-    font-size: 1.2em;
-  }
-  .info-item p {
-    font-size: 0.9em;
+
+  /* --- Página de Diseño (diseño.html) Responsive --- */
+  .designs-section {
+    padding: 3em 1em;
   }
 
-  /* --- Footer Responsive --- */
-  .footer {
-    padding: 1.5em 1em;
+  .designs-section h2 {
+    font-size: 2em;
   }
-  .footer-content h2 {
-    font-size: 1.8em;
+
+  .categories-filter {
+    flex-direction: column; /* Botones apilados en móvil */
+    gap: 0.5em;
   }
-  .footer-content h5 {
-    font-size: 0.9em;
+
+  .filter-btn {
+    width: 80%;
+    max-width: 200px; /* Ancho máximo para los botones en móvil */
+    margin: 0 auto;
   }
-  .sotial-networks a {
-    font-size: 1.5em;
-    margin: 0 0.5em;
+
+  .gallery-container {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    padding: 0 1em;
   }
 }
 
-@media screen and (max-width: 480px) {
-  /* Ajustes adicionales para móviles muy pequeños */
-  .filter-btn {
-    /* APLICA A: diseño.html */
-    padding: 7px 15px;
-    font-size: 0.8em;
+@media (max-width: 480px) {
+  /* Ajustes más pequeños para móviles */
+  .brand h2 {
+    font-size: 1.4em;
+  }
+
+  .info-content h1 {
+    font-size: 1.8em;
+  }
+
+  .info-content .download-cv {
+    font-size: 1em;
+    padding: 0.7em 1.2em;
+  }
+
+  .footer-content h2 {
+    font-size: 1.5em;
+  }
+
+  .footer-content h5 {
+    font-size: 0.9em;
+  }
+
+  .sotial-networks {
+    gap: 1em;
+  }
+
+  .sotial-networks a {
+    font-size: 1.5em;
   }
 }
