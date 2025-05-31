@@ -93,6 +93,14 @@ header {
   transition: color 0.3s ease-in-out;
 }
 
+.menu li a.active {
+  background-color: #ff0000;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5em 1em; /* Ajuste para el padding */
+  border-radius: 5px;
+}
+
 .menu li a:hover {
   color: #ff0000;
 }
@@ -204,7 +212,8 @@ header {
 .about-us-section h1,
 .values-section h2,
 .why-choose-us-section h2,
-.section-heading h2 { /* Aplica a los headings dentro de section-heading */
+.section-heading h2 {
+  /* Aplica a los headings dentro de section-heading */
   font-size: 2.5em;
   color: #222;
   margin-bottom: 0.5em; /* Ajustado para estar más cerca del divider */
@@ -277,7 +286,6 @@ header {
   font-size: 1.2em;
 }
 
-
 .why-choose-us-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -327,7 +335,8 @@ header {
   text-align: center;
 }
 
-.designs-section h2 { /* Modificado para coexistir con .section-heading h2 */
+.designs-section h2 {
+  /* Modificado para coexistir con .section-heading h2 */
   font-size: 2.5em;
   color: #222;
   margin-bottom: 0.5em; /* Ajustado */
@@ -373,12 +382,15 @@ header {
 }
 
 .design-card {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   text-align: left;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease, height 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    opacity 0.3s ease, height 0.3s ease;
 }
 
 .design-card.hidden {
@@ -388,7 +400,8 @@ header {
   margin: 0;
   border: none;
   visibility: hidden; /* Asegura que no sea interactuable */
-  transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+  transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease,
+    margin 0.3s ease;
 }
 
 .design-card:hover {
@@ -404,7 +417,10 @@ header {
 }
 
 .card-info {
+  display: flex;
+  flex-direction: column;
   padding: 1.5em;
+  flex-grow: 1;
 }
 
 .card-info h3 {
@@ -428,6 +444,8 @@ header {
   border-radius: 5px;
   font-size: 0.9em;
   transition: background-color 0.3s ease-in-out;
+  margin-top: auto;
+  align-self: center;
 }
 
 .btn-design-info:hover {
