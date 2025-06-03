@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&family=Poppins:wght@600;700&display=swap");
 /* ========================================================================== */
 /* ===  SECCIÓN 1: ESTILOS GLOBALES Y BÁSICOS (APLICAN A TODO EL SITIO)  === */
 /* ========================================================================== */
@@ -11,10 +10,22 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  overflow-x: hidden; /* Evita el scroll horizontal en caso de desbordamientos */
-  line-height: 1.6; /* Mejora la legibilidad del texto */
-  color: #333; /* Color de texto por defecto */
+  font-family: "Montserrat", Arial, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Títulos y encabezados con Poppins */
+h1, h2, h3, h4, h5, h6,
+.section-heading h2,
+.brand h2,
+.values-list h3,
+.feature-item h3,
+.card-info h3,
+.footer-content h2 {
+  font-family: "Poppins", "Montserrat", Arial, sans-serif;
+  font-weight: 700;
 }
 
 .wrapper {
